@@ -4,6 +4,15 @@ import math
 from config import *
 from faceoff_circles import draw_all_faceoff_circles
 
+def draw_goal_line(surface, color, board_left_x, board_right_x, ice_y, padding=100):
+    """
+    Draws goal line between boards with padding.
+    :param padding: Space between goal line and boards (in pixels)
+    """
+    start_pos = (board_left_x + padding, ice_y)
+    end_pos = (board_right_x - padding, ice_y)
+    pygame.draw.line(surface, color, start_pos, end_pos, 3)
+
 def draw_rink(surface, screen_width, screen_height, pens_win=False):
     """Draws complete NHL rink WITHOUT creases"""
     rink_rect = get_scaled_rink_rect(screen_width, screen_height)
